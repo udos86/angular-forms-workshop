@@ -16,12 +16,12 @@ export class DynamicFormComponent implements OnInit {
   formGroup: FormGroup;
   formLayout: DynamicFormLayout = FORM_LAYOUT;
 
-  constructor(private httpClient: HttpClient, private formService: DynamicFormService) { }
+  constructor(private formService: DynamicFormService, private httpClient: HttpClient, ) { }
 
   ngOnInit() {
 
    this.formModel = this.formService.fromJSON(this.formModel);
-   this.formGroup = this.formService.createFormGroup(this.formModel);
+   this.formGroup = this.formService.createFormGroup(this.formModel, { asyncValidators: customAsyncFormGroupValidator });
 
     /*
     this.httpClient.get<object[]>('./app/dynamic-form/dynamic-form.model.json').subscribe(formModelJson => {
