@@ -1,0 +1,86 @@
+<div class="container-fluid overflow-hidden">
+
+  <h1 class="text-center">Reactive Form</h1>
+
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+    <!-- DEGREE -->
+    <div class="form-group">
+
+      <label for="degree">Degree</label>
+      <select class="form-control" id="title" formControlName="degree">
+        <option value="BA">Bachelor of Arts (B.A.)</option>
+        <option value="BS">Bachelor of Science (B.S.)</option>
+        <option value="MA">Master of Arts (M.A.)</option>
+        <option value="MS">Master of Science (M.S.)</option>
+        <option value="PhD">Doctor of Philosophy (Ph.D.)</option>
+      </select>
+
+    </div>
+
+    <!-- FIRST NAME -->
+    <div class="form-group">
+
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="First Name"
+        [class.is-invalid]="!formGroup.get('firstName').valid && formGroup.get('firstName').touched">
+      <!-- VALIDATION MESSAGE APPROACH A: Direct static template logic -->
+      <div *ngIf="formGroup.get('firstName').hasError('required') && formGroup.get('firstName').touched"
+        class="invalid-feedback">Field is required</div>
+
+    </div>
+
+    <!-- LAST NAME -->
+    <div class="form-group">
+
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name"
+        [class.is-invalid]="!formGroup.get('lastName').valid && formGroup.get('lastName').touched">
+      <!-- VALIDATION MESSAGE APPROACH B: Encapsulated logic in a custom component -->
+      <validation-message [control]="formGroup.get('lastName')"></validation-message>
+
+    </div>
+
+    <!-- EMAIL -->
+    <div class="form-group">
+
+      <label for="email">E-Mail</label>
+      <!-- VALIDATION MESSAGE APPROACH C: Dynamic component -->
+      <input type="text" class="form-control" id="email" formControlName="email" placeholder="E-Mail"
+        [class.is-invalid]="!formGroup.get('email').valid && formGroup.get('email').touched"
+        [dynamicValidationMessage]="formGroup.get('email')">
+
+    </div>
+
+    <!-- ZIP CODE / CITY -->
+    <div class="form-row" formGroupName="address">
+
+      <div class="form-group col-sm-3">
+        <label for="zipCode">Zip Code</label>
+        <input type="text" class="form-control" id="zipCode" formControlName="zipCode" placeholder="ZIP">
+      </div>
+
+      <div class="form-group col-sm-4">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" formControlName="city" placeholder="City">
+      </div>
+
+    </div>
+
+    <!-- CONFIRM -->
+    <div class="form-group">
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="confirm" formControlName="confirm">
+        <label class="form-check-label" for="confirm">Confirm</label>
+      </div>
+
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!formGroup.valid">Send</button>
+
+  </form>
+
+  <pre>{{formGroup.value | json}}</pre>
+
+</div>

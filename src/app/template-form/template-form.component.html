@@ -1,0 +1,98 @@
+<div class="container-fluid overflow-hidden">
+
+  <h1 class="text-center">Template Form</h1>
+
+  <form (ngSubmit)="onSubmit()" #form="ngForm">
+
+    <!-- DEGREE -->
+    <div class="form-group">
+
+      <label for="degree">Degree</label>
+      <select class="form-control" id="degree" name="degree" [(ngModel)]="formModel.degree">
+        <option value="BA">Bachelor of Arts (B.A.)</option>
+        <option value="BS">Bachelor of Science (B.S.)</option>
+        <option value="MA">Master of Arts (M.A.)</option>
+        <option value="MS">Master of Science (M.S.)</option>
+        <option value="PhD">Doctor of Philosophy (Ph.D.)</option>
+      </select>
+
+    </div>
+
+    <!-- FIRST NAME -->
+    <div class="form-group">
+
+      <label for="firstName">First Name</label>
+      <input type="text" class="form-control" id="firstName" name="firstName" placeholder="First Name" required
+        [(ngModel)]="formModel.firstName" [class.is-invalid]="!inputFirstName.valid && inputFirstName.touched"
+        #inputFirstName="ngModel">
+      <!-- VALIDATION MESSAGE APPROACH A: Direct static template logic -->
+      <div *ngIf="inputFirstName.hasError('required') && inputFirstName.touched" class="invalid-feedback">Field is
+        required</div>
+
+    </div>
+
+    <!-- LAST NAME -->
+    <div class="form-group">
+
+      <label for="lastName">Last Name</label>
+      <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" required
+        forbidden="Faker" [(ngModel)]="formModel.lastName"
+        [class.is-invalid]="!inputLastName.valid && inputLastName.touched" #inputLastName="ngModel">
+      <!-- VALIDATION MESSAGE APPROACH B: Encapsulated logic in a custom component -->
+      <validation-message [control]="inputLastName.control"></validation-message>
+
+    </div>
+
+    <!-- EMAIL -->
+    <div class="form-group">
+
+      <label for="email">E-Mail</label>
+      <!-- VALIDATION MESSAGE APPROACH C: Dynamic component -->
+      <input type="text" class="form-control" id="email" name="email" placeholder="E-Mail" required
+        [(ngModel)]="formModel.email" [class.is-invalid]="!inputEmail.valid && inputEmail.touched" #inputEmail="ngModel"
+        [dynamicValidationMessage]="inputEmail.control">
+
+    </div>
+
+    <!-- ZIP CODE / CITY -->
+    <div class="form-row" ngModelGroup="address">
+
+      <div class="form-group col-sm-3">
+        <label for="zipCode">Zip Code</label>
+        <input type="text" class="form-control" id="zipCode" name="zipCode" placeholder="ZIP"
+          [(ngModel)]="formModel.address.zipCode">
+      </div>
+
+      <div class="form-group col-sm-4">
+        <label for="city">City</label>
+        <input type="text" class="form-control" id="city" name="city" placeholder="City"
+          [(ngModel)]="formModel.address.city">
+      </div>
+
+    </div>
+
+    <!-- CONFIRM -->
+    <div class="form-group">
+
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="confirm" name="confirm" [(ngModel)]="formModel.confirm">
+        <label class="form-check-label" for="confirm">Confirm</label>
+      </div>
+
+    </div>
+
+    <!-- CUSTOM RANDOM CONTROL -->
+    <!--div class="form-group">
+
+      <label for="random">Random</label>
+      <custom-form-control id="random" name="random" [(ngModel)]="formModel.random"></custom-form-control>
+
+    </div-->
+
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Send</button>
+
+  </form>
+
+  <pre>{{form.value | json}}</pre>
+
+</div>

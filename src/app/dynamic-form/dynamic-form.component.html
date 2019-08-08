@@ -1,0 +1,20 @@
+<div class="container-fluid overflow-hidden">
+
+  <h1 class="text-center">Dynamic Form</h1>
+
+  <ng-container *ngIf="formGroup">
+
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+      <dynamic-ng-bootstrap-form [group]="formGroup" [model]="formModel" [layout]="formLayout">
+      </dynamic-ng-bootstrap-form>
+
+      <button type="submit" class="btn btn-primary" [disabled]="!formGroup.valid">Send</button>
+
+    </form>
+
+    <pre>{{formGroup.value | json}}</pre>
+
+  </ng-container>
+
+</div>

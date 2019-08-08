@@ -1,11 +1,39 @@
+import { ReactiveSearchComponent } from './reactive-search/reactive-search.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { TemplateFormComponent } from './template-form/template-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
-
-const routes: Routes = [];
+const APP_ROUTES: Routes = [
+    {
+        path: "",
+        redirectTo: "/template-form",
+        pathMatch: "full"
+    },
+    {
+        path: "template-form",
+        component: TemplateFormComponent,
+    },
+    {
+        path: "reactive-form",
+        component: ReactiveFormComponent,
+    },
+    {
+        path: "dynamic-form",
+        component: DynamicFormComponent,
+    },
+    {
+        path: "reactive-search",
+        component: ReactiveSearchComponent
+    }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+
+    imports: [RouterModule.forRoot(APP_ROUTES)],
+    exports: [RouterModule]
 })
-export class AppRoutingModule { }
+
+export class AppRoutingModule {
+}
