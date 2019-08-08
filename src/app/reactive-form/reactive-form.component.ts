@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { customForbiddenValidator } from '../validation/validators/custom-forbidden-validator.directive';
-import { customAsyncFormGroupValidator } from '../validation/validators/custom-async-form-group-validator';
+import { customForbiddenValidator } from '../validation/validators/custom-forbidden.validator';
+import { customAsyncFormGroupValidator } from '../validation/validators/custom-async-form-group.validator';
 
 @Component({
   selector: 'reactive-form',

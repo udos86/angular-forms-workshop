@@ -4,12 +4,11 @@ import { FormGroup } from "@angular/forms";
 import { DynamicFormControlModel, DynamicFormService, DynamicFormLayout } from "@ng-dynamic-forms/core";
 import { FORM_MODEL } from './dynamic-form.model';
 import { FORM_LAYOUT } from './dynamic-form.layout';
-import { customAsyncFormGroupValidator } from '../validation/validators/custom-async-form-group-validator';
+import { customAsyncFormGroupValidator } from '../validation/validators/custom-async-form-group.validator';
 
 @Component({
   selector: 'dynamic-forms',
-  templateUrl: './dynamic-form.component.html',
-  styleUrls: ['./dynamic-form.component.css']
+  templateUrl: './dynamic-form.component.html'
 })
 export class DynamicFormComponent implements OnInit {
 

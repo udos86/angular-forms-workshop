@@ -13,9 +13,9 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 
 import { ValidationMessageComponent } from './validation/validation-message/validation-message.component';
-import { CustomForbiddenValidatorDirective, customForbiddenValidator } from './validation/validators/custom-forbidden-validator.directive';
+import { CustomForbiddenValidatorDirective, customForbiddenValidator } from './validation/validators/custom-forbidden.validator';
 import { ValidationMessageDirective } from './validation/validation-message/validation-message.directive';
-import { customAsyncFormGroupValidator } from "./validation/validators/custom-async-form-group-validator";
+import { customAsyncFormGroupValidator } from "./validation/validators/custom-async-form-group.validator";
 import { CustomFormControlComponent } from './custom-form-control/custom-form-control.component';
 import { ReactiveSearchComponent } from './reactive-search/reactive-search.component';
 

@@ -6,8 +6,7 @@ import { debounceTime, distinctUntilChanged, map, switchMap } from "rxjs/operato
 
 @Component({
   selector: 'app-reactive-search',
-  templateUrl: './reactive-search.component.html',
-  styleUrls: ['./reactive-search.component.css']
+  templateUrl: './reactive-search.component.html'
 })
 export class ReactiveSearchComponent implements OnInit {
 
