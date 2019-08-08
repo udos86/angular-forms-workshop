@@ -17,7 +17,7 @@ export class ReactiveFormComponent implements OnInit {
 
     this.formGroup = this.formBuilder.group(
       {
-        degree: null,
+        degree: "NONE",
         firstName: [null, Validators.required],
         lastName: [null, Validators.compose([Validators.required, customForbiddenValidator("Faker")])],
         email: [null, Validators.required],

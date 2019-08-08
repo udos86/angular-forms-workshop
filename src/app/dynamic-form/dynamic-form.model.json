@@ -5,6 +5,10 @@
     "label": "Degree",
     "options": [
       {
+        "label": "None",
+        "value": "NONE"
+      },
+      {
         "label": "Bachelor of Arts (B.A.)",
         "value": "BA"
       },

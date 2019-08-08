@@ -14,6 +14,10 @@ export const FORM_MODEL: DynamicFormControlModel[] = [
     label: "Degree",
     options: [
       {
+        label: "None",
+        value: "NONE"
+      },
+      {
         label: "Bachelor of Arts (B.A.)",
         value: "BA"
       },
@@ -31,9 +35,10 @@ export const FORM_MODEL: DynamicFormControlModel[] = [
       },
       {
         label: "Doctor of Philosophy (Ph.D.)",
-        value: "PhD"
+        value: "PHD"
       }
-    ]
+    ],
+    value: "NONE"
   }),
 
   new DynamicInputModel({

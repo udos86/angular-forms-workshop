@@ -10,7 +10,7 @@ export class TemplateFormComponent implements OnInit {
   @ViewChild('form', { static: false }) form: NgForm;
 
   formModel: any = {
-    degree: null,
+    degree: "NONE",
     firstName: null,
     lastName: null,
     email: null,
