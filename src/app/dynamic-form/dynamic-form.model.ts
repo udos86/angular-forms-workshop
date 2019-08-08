@@ -56,7 +56,7 @@ export const FORM_MODEL: DynamicFormControlModel[] = [
     placeholder: "Last Name",
     validators: {
       required: null,
-      customForbiddenValidator: "Trump"
+      customForbiddenValidator: "Faker"
     },
     errorMessages: {
       required: "Field is required",

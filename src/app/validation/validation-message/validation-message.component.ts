@@ -3,8 +3,7 @@ import { AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'validation-message',
-  templateUrl: './validation-message.component.html',
-  styleUrls: ['./validation-message.component.css']
+  templateUrl: './validation-message.component.html'
 })
 export class ValidationMessageComponent implements OnInit {
 

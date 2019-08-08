@@ -3,11 +3,11 @@ import { AbstractControl } from '@angular/forms';
 import { ValidationMessageComponent } from './validation-message.component';
 
 @Directive({
-  selector: '[dynamicValidationMessage]'
+  selector: '[validationMessage]'
 })
-export class DynamicValidationMessageDirective {
+export class ValidationMessageDirective {
 
-  @Input('dynamicValidationMessage') control: AbstractControl;
+  @Input('validationMessage') control: AbstractControl;
 
   componentFactory: ComponentFactory<ValidationMessageComponent>
   componentRef: ComponentRef<ValidationMessageComponent>;

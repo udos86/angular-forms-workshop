@@ -50,7 +50,7 @@
       <!-- VALIDATION MESSAGE APPROACH C: Dynamic component -->
       <input type="text" class="form-control" id="email" name="email" placeholder="E-Mail" required
         [(ngModel)]="formModel.email" [class.is-invalid]="!inputEmail.valid && inputEmail.touched" #inputEmail="ngModel"
-        [dynamicValidationMessage]="inputEmail.control">
+        [validationMessage]="inputEmail.control">
 
     </div>
 

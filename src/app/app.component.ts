@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, ActivatedRoute } from '@angular/router';
 import { routeAnimations } from './animations';
 
 @Component({
@@ -10,7 +10,7 @@ import { routeAnimations } from './animations';
 })
 export class AppComponent {
 
-  getRouterOutletState(routerOutlet: RouterOutlet) {
+  getActivatedRoute(routerOutlet: RouterOutlet): ActivatedRoute | string {
     return routerOutlet.isActivated ? routerOutlet.activatedRoute : '';
   }
 }

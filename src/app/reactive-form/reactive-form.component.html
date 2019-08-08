@@ -48,7 +48,7 @@
       <!-- VALIDATION MESSAGE APPROACH C: Dynamic component -->
       <input type="text" class="form-control" id="email" formControlName="email" placeholder="E-Mail"
         [class.is-invalid]="!formGroup.get('email').valid && formGroup.get('email').touched"
-        [dynamicValidationMessage]="formGroup.get('email')">
+        [validationMessage]="formGroup.get('email')">
 
     </div>
 
