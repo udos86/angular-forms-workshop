@@ -55,7 +55,7 @@ export const feedbackAnimations = trigger('feedbackAnimations', [
         }),
 
         animate(
-          '0.25s ease-out',
+          '0.2s ease-out',
           style({
             opacity: 1,
             transform: 'none'
@@ -71,10 +71,9 @@ export const feedbackAnimations = trigger('feedbackAnimations', [
     query('div:leave',
       [
         animate(
-          '0.25s ease-out',
+          '0.2s ease-out',
           style({
-            opacity: 0,
-            transform: 'translateY(-75%)'
+            opacity: 0
           })
         )
       ],

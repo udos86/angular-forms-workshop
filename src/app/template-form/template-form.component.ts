@@ -1,11 +1,11 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'template-form',
   templateUrl: './template-form.component.html'
 })
-export class TemplateFormComponent implements OnInit {
+export class TemplateFormComponent {
 
   @ViewChild('form', { static: false }) form: NgForm;
 
@@ -24,7 +24,9 @@ export class TemplateFormComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  isInvalid(ngModel: NgModel): boolean {
+    return !ngModel.valid && ngModel.touched;
+  }
 
   onSubmit() {
     this.form.reset();

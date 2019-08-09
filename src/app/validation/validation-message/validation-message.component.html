@@ -1,2 +1,3 @@
 <div *ngIf="control && control.hasError('required') && control.touched">Field is required</div>
-<div *ngIf="control && control.hasError('forbidden') && control.touched">Field value is forbidden</div>
+<div *ngIf="control && control.hasError('forbidden') && control.touched">Field value {{ control.value }} is forbidden
+</div>

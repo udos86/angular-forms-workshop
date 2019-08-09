@@ -24,9 +24,9 @@
 
       <label for="firstName">First Name</label>
       <input type="text" class="form-control" id="firstName" formControlName="firstName" placeholder="First Name"
-        [class.is-invalid]="!formGroup.get('firstName').valid && formGroup.get('firstName').touched">
+        [class.is-invalid]="isInvalid(getControl('firstName'))">
       <!-- VALIDATION MESSAGE APPROACH A: Direct static template logic -->
-      <div *ngIf="formGroup.get('firstName').hasError('required') && formGroup.get('firstName').touched"
+      <div *ngIf="getControl('firstName').hasError('required') && getControl('firstName').touched"
         class="invalid-feedback">Field is required</div>
 
     </div>
@@ -36,9 +36,10 @@
 
       <label for="lastName">Last Name</label>
       <input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Last Name"
-        [class.is-invalid]="!formGroup.get('lastName').valid && formGroup.get('lastName').touched">
+        [class.is-invalid]="isInvalid(getControl('lastName'))">
       <!-- VALIDATION MESSAGE APPROACH B: Encapsulated logic in a custom component -->
-      <validation-message [control]="formGroup.get('lastName')"></validation-message>
+      <validation-message *ngIf="isInvalid(getControl('lastName'))" [control]="getControl('lastName')">
+      </validation-message>
 
     </div>
 
@@ -48,8 +49,7 @@
       <label for="email">E-Mail</label>
       <!-- VALIDATION MESSAGE APPROACH C: Dynamic component -->
       <input type="text" class="form-control" id="email" formControlName="email" placeholder="E-Mail"
-        [class.is-invalid]="!formGroup.get('email').valid && formGroup.get('email').touched"
-        [validationMessage]="formGroup.get('email')">
+        [class.is-invalid]="isInvalid(getControl('email'))" [validationMessage]="getControl('email')">
 
     </div>
 
