@@ -40,7 +40,7 @@
         forbidden="Faker" [(ngModel)]="formModel.lastName"
         [class.is-invalid]="!inputLastName.valid && inputLastName.touched" #inputLastName="ngModel">
       <!-- VALIDATION MESSAGE APPROACH B: Encapsulated logic in a custom component -->
-      <validation-message [control]="inputLastName.control"></validation-message>
+      <validation-message *ngIf="!inputLastName.valid && inputLastName.touched" [control]="inputLastName.control"></validation-message>
 
     </div>
 

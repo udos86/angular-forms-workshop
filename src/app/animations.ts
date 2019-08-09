@@ -1,4 +1,4 @@
-import { trigger, animate, transition, style, query } from '@angular/animations';
+import { trigger, animate, transition, style, query, stagger } from '@angular/animations';
 
 export const routeAnimations = trigger('routeAnimations', [
 
@@ -42,3 +42,45 @@ export const routeAnimations = trigger('routeAnimations', [
     )
   ])
 ]);
+
+export const feedbackAnimations = trigger('feedbackAnimations', [
+
+  transition(':enter', [
+
+    query('div:enter',
+      [
+        style({
+          opacity: 0,
+          transform: 'translateY(-75%)'
+        }),
+
+        animate(
+          '0.25s ease-out',
+          style({
+            opacity: 1,
+            transform: 'none'
+          })
+        )
+      ],
+      { optional: true }
+    ),
+  ]),
+
+  transition(':leave', [
+
+    query('div:leave',
+      [
+        animate(
+          '0.25s ease-out',
+          style({
+            opacity: 0,
+            transform: 'translateY(-75%)'
+          })
+        )
+      ],
+      { optional: true }
+    )
+  ])
+]);
+
+
